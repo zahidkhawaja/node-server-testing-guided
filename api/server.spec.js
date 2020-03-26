@@ -17,6 +17,12 @@ describe('server.js', () => {
   })
 
   describe('[GET] /hobbits', () => {
-
+    it('works correctly', () => {
+      return request(server).get('/hobbits')
+        .then(response => {
+          // usual jest
+          expect(response.statusCode).toBe(200)
+        })
+    })
   })
 })
