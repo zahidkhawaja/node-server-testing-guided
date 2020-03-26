@@ -10,8 +10,9 @@ module.exports = {
 
 async function insert(hobbit) {
   const [id] = await db("hobbits").insert(hobbit)
-  const records = await db('hobbits').where({ id })
-  return records[0]
+  // const records = await db('hobbits').where({ id })
+  // return records[0]
+  return await db('hobbits').where({ id }).first()
 }
 
 async function update(id, changes) {
