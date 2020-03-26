@@ -26,7 +26,7 @@ describe('hobbitsModel', () => {
 
       records = await db('hobbits')
       expect(records).toHaveLength(0)
-      await Hobbits.insert({ name: 'Christina'})
+      await Hobbits.insert({ name: 'Christina' })
 
       records = await db('hobbits')
       expect(records).toHaveLength(1)
@@ -37,8 +37,9 @@ describe('hobbitsModel', () => {
       expect(records).toHaveLength(2)
     })
 
-    it('resolves to the newly inserted hobbit', () => {
-
+    it('resolves to the newly inserted hobbit', async () => {
+      expect(await Hobbits.insert({ name: 'Bro' }))
+        .toEqual({ id: 1, name: 'Bro' })
     })
   })
 })
