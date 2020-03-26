@@ -11,7 +11,8 @@ describe('server.js', () => {
       return request(server).get('/')
         .expect(200)
         .expect('Content-Type', /json/)
-        .expect('Content-Length', 12)
+        .expect('Content-Length', '12')
+        .expect({ api: "up" })
     })
   })
 
