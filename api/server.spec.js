@@ -9,6 +9,9 @@ describe('server.js', () => {
   describe('[GET] /', () => {
     it('runs correctly', () => {
       return request(server).get('/')
+        .expect(200)
+        .expect('Content-Type', /json/)
+        .expect('Content-Length', 12)
     })
   })
 
