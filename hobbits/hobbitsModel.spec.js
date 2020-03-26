@@ -22,23 +22,23 @@ describe('hobbitsModel', () => {
       // 3- insert something
       // 4- read the db
       // 5- assert there is one record
-      let hobbits
+      let records
 
-      hobbits = await db('hobbits')
-      expect(hobbits).toHaveLength(0)
+      records = await db('hobbits')
+      expect(records).toHaveLength(0)
       await Hobbits.insert({ name: 'Christina'})
 
-      hobbits = await db('hobbits')
-      expect(hobbits).toHaveLength(1)
+      records = await db('hobbits')
+      expect(records).toHaveLength(1)
 
       await Hobbits.insert({ name: 'Alison' })
 
-      hobbits = await db('hobbits')
-      expect(hobbits).toHaveLength(2)
+      records = await db('hobbits')
+      expect(records).toHaveLength(2)
     })
 
     it('resolves to the newly inserted hobbit', () => {
-      
+
     })
   })
 })
