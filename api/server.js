@@ -20,4 +20,15 @@ server.get("/hobbits", (req, res) => {
     });
 });
 
+server.post("/hobbits", (req, res) => {
+  const hobbitInfo = req.body;
+  Hobbits.insert(hobbitInfo)
+    .then(ids => {
+      res.status(201).json({ message: "Added hobbit successfully"});
+    })
+    .catch(error => {
+      res.status(500).json({ errorMessage: error.message });
+    })
+})
+
 module.exports = server;
